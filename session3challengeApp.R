@@ -13,6 +13,8 @@ ui <- fluidPage(
     mainPanel (uiOutput("image"))
   )
 )
+
+
 server <- function(input, output) {
   #1. reactive fn to set the height of the image
   imageHeight <- reactive({return(input$slider)})
@@ -39,4 +41,6 @@ server <- function(input, output) {
     img(src=selectedImage(), height= imageHeight())
   })
 }
+
+
 shinyApp(ui, server)
